@@ -31,6 +31,9 @@
     <div id="users" class="col-md-6">
         {{ render_project_card_option(project, upload_method, title=_('Announcement'), explanation=_('Write new announcement'), link=url_for('admin.announcement'), link_action_text=_('Manage'), icon='user')}}
     </div>
+    <div id="validation" class="col-md-6">
+        {{ render_project_card_option(project, upload_method, title=_('Validation'), explanation=_('Validate submissions'), link=url_for('admin.validation'), link_action_text=_('Manage'), icon='check')}}
+    </div>
 </div>
 <div class="row">
     <div class="col-md-12">

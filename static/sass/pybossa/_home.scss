@@ -1,3 +1,8 @@
+@font-face {
+    font-family: avenir-heavy;
+    src: url(../../css/fonts/Avenir-Heavy.otf) format("opentype");
+  }
+
 section.home {
     margin-bottom: 40px;
 }
@@ -9,4 +14,19 @@ section.home.projects {
     margin-top: 50px;
 }
 
+.col-md-offset-1 > h1 {
+    font-family: avenir-heavy;
+}
 
+.col-md-offset-1 > p {
+    color: black;
+}
+
+.col-md-offset-1 > li {
+    color: black;
+}
+
+
+.col-md-offset-1 > p > a {
+    color: #e30000;
+}

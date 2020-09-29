@@ -353,58 +353,6 @@
             </div>
             <!-- END Anon User Stats CARD -->
 
-            <!-- Auth User Stats CARD -->
-            <div id="card" class="row">
-                <div id="dist-auth" class="col-md-12">
-                    <h2>{{_('Details about Authenticated Users')}}</h2>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p><i class="icon-group"></i> <strong>{{userStats.authenticated.users}}</strong> {{_('authenticated users have')}} <strong>{{_('participated')}}</strong>.</p>
-                            {% if userStats.authenticated.top5 %}
-                            <h3>{{_('Top 5 users')}}</h3>
-                            <table class="table table-hover table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>{{_('User')}}</th>
-                                        <th>{{_('Tasks')}}</th>
-                                    </tr>
-                                </thead>
-                            {% for u in userStats.authenticated.top5 %}
-                                <tr>
-                                    <th>{{loop.index}}</th>
-                                    <th><a href="{{url_for('account.profile', name=u.name)}}">{{u.fullname}}</a></th>
-                                    <th>{{u.tasks}}</th>
-                                </tr>
-                            {% endfor %}
-                            </table>
-                            {% endif %}
-                        </div>
-                        <div id="userAuthStats" class="col-md-12" style='height:400px'>
-                        </div>
-                        <script>
-                        (function(){
-                        var container = document.getElementById('userAuthStats');
-                        var graph = Flotr.draw(container, [
-                            {data:[[0, projectStats.userAuthStats['top5'][0]['tasks'] ]],  label:projectStats.userAuthStats['top5'][0]['fullname']},
-                            {data:[[0, projectStats.userAuthStats['top5'][1]['tasks'] ]],  label:projectStats.userAuthStats['top5'][1]['fullname']}, 
-                            {data:[[0, projectStats.userAuthStats['top5'][2]['tasks'] ]],  label:projectStats.userAuthStats['top5'][2]['fullname']}, 
-                            {data:[[0, projectStats.userAuthStats['top5'][3]['tasks'] ]],  label:projectStats.userAuthStats['top5'][3]['fullname']}, 
-                            {data:[[0, projectStats.userAuthStats['top5'][4]['tasks'] ]],  label:projectStats.userAuthStats['top5'][4]['fullname']}], 
-                            {
-                            pie     : {show: true, explode: 5},
-                            grid    : {verticalLines: false, horizontalLines: false, outlineWidth: 0},
-                            HtmlText: false,
-                            xaxis   : {showLabels: false},
-                            yaxis   : {showLabels: false},
-                            legend  : {postion: 'nw'}
-                        });
-                        })();
-                        </script>
-                    </div>
-                </div>
-            </div>
-            <!-- END Auth User Stats CARD -->
             {%endif%}
         </div>
 </div>

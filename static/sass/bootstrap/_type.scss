@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
+  color: black !important;
 
   small,
   .small {
@@ -26,12 +26,19 @@ h2, .h2,
 h3, .h3 {
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
+  font-family: avenir-light !important;
+  color: black !important;
 
   small,
   .small {
     font-size: 65%;
   }
 }
+
+h1, .h1 {
+  font-family: avenir-heavy !important;
+}
+
 h4, .h4,
 h5, .h5,
 h6, .h6 {
@@ -57,6 +64,8 @@ h6, .h6 { font-size: $font-size-h6; }
 
 p {
   margin: 0 0 ($line-height-computed / 2);
+  color: black !important;
+  font-family: avenir-light !important;
 }
 
 .lead {
@@ -101,6 +110,23 @@ mark,
 // Contextual colors
 .text-muted {
   color: $text-muted;
+}
+
+.project-header-container {
+  display: table;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  background-image: url(../../img/header/Mindbox-Header_Bildsolo.jpg);
+  visibility: inherit;
+  height: auto !important;
+  min-height: 100%;
+  overflow: visible;
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  padding-bottom: 40px;
 }
 
 @include text-emphasis-variant('.text-primary', $brand-primary);

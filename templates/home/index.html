@@ -2,25 +2,95 @@
 {% import "projects/_helpers.html" as helper %}
 {% import "account/_helpers.html" as account_helper %}
 {% block content %}
+
+
+{% if featured | count > 0 %}
 <section class="home featured">
     <div class="jumbotron">
         <div class="container text-center firstfold">
-            {% if featured | count > 0 %}
             {% set featured_project = featured | random %}
-            <h1>{{ featured_project.name }}</h1>
-            <p>{{ featured_project.description }}</p>
-            <a class="btn btn-primary" href="{{ url_for('project.details', short_name=featured_project.short_name)}}">{{_('Contribute')}}</a>
-            {% else %}
-            <h1>{{_('Welcome to ')}} {{brand}}</h1>
-            <p>{{_("The ultimate crowdsourcing framework to analyze or enrich data that can't be processed by machines alone.")}}</p>
-            {% endif %}
+            <div class="project-header-container">
+                <div class="col-md-5 text-left" style="display: table-row; padding-left: 5%; padding-right: 5%;">
+                    <h1><span style="font-family: avenir-light !important;">Willkommen bei der Crowdsourcing-App für den
+                            <br></span><span style="word-break: break-all !important;"></span>Zukunftsbahnhof Münster
+                    </h1>
+                    <hr
+                        style="width:20%;text-align:left;margin-left:0; height: 2.5px;color: #e30000; position: relative; left: -50px; background-color: #e30000;">
+                    <p>Hilf´ mit bei der Erstellung einer Datenbasis zur Fahrradsituation rund um den Münsteraner
+                        Hauptbahnhof.</p>
+                    <a class="btn btn-primary"
+                        href="{{ url_for('project.presenter', short_name=featured_project.short_name)}}"
+                        style="margin-bottom: 40 px;">{{_('Hier klicken')}}</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-{% if historical_contributions %}
+<section class="home about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 text-left">
+                <h1>Fahrradzählung Münster Hbf </h1>
+                <hr
+                    style="width:20%;text-align:left;margin-left:0; height: 2.5px;color: #e30000; position: relative; left: -50px; background-color: #e30000;">
+                <p>Fahrradparkplatz? Aber sicher! Pendler, die mit dem Rad zum Bahnhof fahren, haben es nicht
+                    leicht:
+                    Gleich morgens stehen sie vor der Herausforderung in vollen Radparkgaragen einen Platz für ihr
+                    Rad
+                    zu finden oder schnell noch eine Alternative am Außengelände – und das schnellstmöglich, um noch
+                    rechtzeitig zum Zug zu kommen. Die Informationsfabrik und Code for Münster haben sich dieses
+                    Problem
+                    zu Herzen genommen und schaffen dazu eine Datenbasis der Fahrradparksituation rund um den
+                    Hauptbahnhof, mit der neue Services und passende (digitale) Wegeleitsysteme möglich werden. So
+                    können Radfahrer zum Beispiel rechtzeitig über die tagesaktuelle Parksituation informiert
+                    werden.
+                    Dabei soll auch nach Präferenzen wie Fußweg zum Gleis, überdachten Stellplätzen und auch
+                    Diebstahlsicherheit gefiltert werden können.</p>
+                <p>Hilf mit und gestalte Radparken neu – so einfach geht‘s:</p>
+                <p>Das Beste daran: Jeder kann mithelfen! Die Datenbasis entsteht mithilfe freiwilliger Helfer,
+                    welche
+                    bereitgestellte Momentaufnahmen der geparkten Fahrräder rund um den Hauptbahnhof mit Hilfe einer
+                    digitalen Plattform kinderleicht auswerten. So entsteht eine Art Timeline, die Informationen zur
+                    Auslastung der Parkflächen liefert. Diese werden dann mit weiteren statistischen Daten
+                    verknüpft,
+                    wie zum Beispiel die jeweiligen Distanzen vom Radparkplatz zu den Gleisen. Auf diese Weise
+                    entsteht
+                    ein Gesamtbild des regen Rad-Treibens rund um den Hauptbahnhof, und damit die Daten-Basis für
+                    innovative Ideen.</p>
+                <p>Mitmachen lohnt sich: die fleißigsten Contributer erhalten Sach- oder Gutscheinpreise von Startups
+                    oder Unternehmen aus der Region!</p>
+                <p>Preise:
+                <ol style="color: black;">
+                    <li>
+                        Jahresabo für einen Parkplatz in der <a style="color: #e30000;" href="https://www.radstation.de">Radstation</a>
+                    </li>
+                    <li>
+                        <a style="color: #e30000;" href="https://www.gornation.com/de">Gornation</a> Paket
+                    </li>
+                    <li>
+                        Gustav-Grün Gutschein
+                    </li>
+                </ol>
+                </p>
+                <p>Bei der Gewinnvergabe werden Contributions bis 01.10.2020 10:00 Uhr berücksichtigt.</p>
+                <p>Ziel ist es, die Parkplatzsuche für Fahrradfahrende im Bahnhofsumfeld so einfach, angenehm und
+                    sicher
+                    wie möglich zu machen.</p>
+                <p>Für eine mobilere Zukunft!</p>
+                <p>Solltest du weitere Fragen zum Projekt haben oder auf technische Probleme stoßen, schreib uns einfach
+                    eine Mail an <a href="mailto:bikes@informationsfabrik.de">bikes@informationsfabrik.de</a></p>
+                <a class="btn btn-primary"
+                    href="{{ url_for('project.presenter', short_name=featured_project.short_name)}}"
+                    style="margin-bottom: 40 px; margin-top: 10px;">{{_('Hier mitmachen')}}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- {% if historical_contributions %}
 {{ helper.render_grid_projects(historical_contributions, 'Historical Contributions', upload_method, current_user, section_class='home projects', title_size='2') }}
 {% endif %}
 {% if featured %}
 {{ helper.render_grid_projects(featured, 'Featured Projects', upload_method, current_user, section_class='home projects', readmore_text='Contribute', title_size='2') }}
-{% endif %}
+{% endif %} -->
 {% endblock %}

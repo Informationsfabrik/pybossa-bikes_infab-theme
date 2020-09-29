@@ -1,4 +1,3 @@
-
 {% import "account/_helpers.html" as helper %}
 
 {% macro render_admin_user(user, upload_method) %}
@@ -23,21 +22,22 @@
 {% endmacro %}
 
 {%- macro render_project_card_user(user, upload_method, title, explanation, link, link_action_text, background=False, download=False, nofollow=False, link_class=None, id=None, icon=None, link_two=None, link_action_text_two=None) %}
-<div {%if id%}id="{{id}}"{% endif %} class="thumbnail card">
-    <div class="post-pic" style="background: rgb(0, 151, 167) {%- if background %}url({{helper.render_user_avatar_src(user, upload_method)}}){% endif -%} no-repeat center top; background-size: cover;">
+<div {%if id%}id="{{id}}" {% endif %} class="thumbnail card">
+    <div class="post-pic"
+        style="background: #979799 {%- if background %}url({{helper.render_user_avatar_src(user, upload_method)}}){% endif -%} no-repeat center top; background-size: cover;">
         {% if not background %}
-            {% if icon %}
-            <div class="row">
-                <div class="col-xs-8">
-                    <h3>{{user.fullname}}</h3>
-                </div>
-                <div class="col-xs-3">
-                    <i class="fa fa-{{icon}} fa-fw fa-4x"></i>
-                </div>
-            </div>
-            {% else %}
+        {% if icon %}
+        <div class="row">
+            <div class="col-xs-8">
                 <h3>{{user.fullname}}</h3>
-            {% endif %}
+            </div>
+            <div class="col-xs-3">
+                <i class="fa fa-{{icon}} fa-fw fa-4x"></i>
+            </div>
+        </div>
+        {% else %}
+        <h3>{{user.fullname}}</h3>
+        {% endif %}
         {% endif %}
     </div>
     <div class="caption">
@@ -47,16 +47,46 @@
         <p>{{user.name}}</p>
         {% if user.admin %}
         <p class="readmore"><a href="{{url_for('admin.del_admin', user_id=user.id)}}">
-            {{ _('Remove from admin group') }}</a>
+                {{ _('Remove from admin group') }}</a>
         </p>
         {% else %}
         <p class="readmore">
-        <a href="{{url_for('admin.add_admin', user_id=user.id)}}">
-            {{ _('Add to admin group') }}</a>
+            <a href="{{url_for('admin.add_admin', user_id=user.id)}}">
+                {{ _('Add to admin group') }}</a>
         </p>
         {% endif %}
     </div>
 </div>
 {% endmacro -%}
 
+{% macro render_pagination(pagination) %}
+<ul class="pagination pagination-sm">
+    {% if pagination.has_prev %}
+    <li><a href="{{ url_for_other_page(pagination.page - 1)}}" rel="nofollow">&laquo; {{_('Prev')}}</a></li>
+    {% else %}
+    <li class="disabled"><a href="#">&laquo; {{_('Prev')}}</a></li>
+    {% endif %}
 
+    {%- for page in pagination.iter_pages() %}
+    {% if page %}
+        {% if page != pagination.page %}
+            <li>
+            <a href="{{ url_for_other_page(page) }}" rel="nofollow">{{ page }}</a>
+        </li>
+        {% else %}
+            {% if pagination.pages >= page %}
+                <li class="active">
+                    <a href="#">{{ page }}</a>
+                </li>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    {%- endfor %}
+    {% if pagination.has_next %}
+    <li>
+        <a href="{{ url_for_other_page(pagination.page + 1)
+      }}" rel="nofollow">{{_('Next')}} &raquo;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endmacro %}

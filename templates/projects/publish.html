@@ -9,7 +9,7 @@
           {{ helper.render_project_local_nav(project, 'settings', current_user, pro_features) }}
       </div>
     <div class="col-md-9">
-        <h1><strong>{{project.name}}</strong>: {{ _('Publish the project') }}</h1>
+        <h1>{{project.name}}: {{ _('Publish the project') }}</h1>
         <div class="alert alert-danger">
             <strong>{{ _('Please read carefully!') }}</strong>
             <p>{{ _('You are about to publish your project. This CANNOT be undone! Once your project has been published, people will be able to contribute to it. All the taskruns (answers) that may have been created during the test phase will be flushed and your project will start fresh.') }}</p>

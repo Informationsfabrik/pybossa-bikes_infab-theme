@@ -54,7 +54,6 @@
         <li class="list-group-item {% if active_link=="webhook"%}active{% endif %}"><a href="{{url_for('project.webhook_handler', short_name=project.short_name)}}">{{_('Webhooks')}}</a><i class="fa fa-chevron-right pull-right"></i></li>
         {% endif %}
     {% endif %}
-    <li class="list-group-item {% if active_link=="blog"%}active{% endif %}"><a href="{{url_for('project.show_blogposts', short_name=project.short_name)}}">{{_('Blog')}}</a><i class="fa fa-chevron-right pull-right"></i></li>
     <li class="list-group-item {% if active_link=="contribute"%}active{% endif %}"><a href="{{url_for('project.presenter', short_name=project.short_name)}}">{{_('Contribute')}}</a><i class="fa fa-chevron-right pull-right"></i></li>
 </ul>
 {% endmacro %}
@@ -239,7 +238,7 @@
                {% for f in projects %}
                <div class="{{projects_class}}">
                    <div class="thumbnail card">
-                       <div class="post-pic" style="background: rgb(0, 151, 167) url({{render_url_thumbnail(f, upload_method)}}) no-repeat center top; background-size: cover;"></div>
+                       <div class="post-pic" style="background: #979799 url(/static/img/header/500_F_222358991_jsdKQXIlNaZF7uPAbf13mBz3W81lZbU8.jpg) no-repeat center top; background-size: cover;"></div>
                        <div class="caption">
                            <h3>{{f.name}}</h3>
                            <p>{{f.description}}</p>
@@ -312,12 +311,12 @@
 <div {%if id%}id="{{id}}"{% endif %} class="thumbnail card">
     {% if background %}
         {% if background_url %}
-        <div class="post-pic" style="background: rgb(0, 151, 167) url({{background_url}}) no-repeat center top; background-size: cover;">
+        <div class="post-pic" style="background: #979799 url({{background_url}}) no-repeat center top; background-size: cover;">
         {% else %}
-        <div class="post-pic" style="background: rgb(0, 151, 167) url({{render_url_thumbnail(project, upload_method)}}) no-repeat center top; background-size: cover;">
+        <div class="post-pic" style="background: #979799 url({{render_url_thumbnail(project, upload_method)}}) no-repeat center top; background-size: cover;">
         {% endif %}
     {% else %}
-    <div class="post-pic" style="background: rgb(0, 151, 167) no-repeat center top; background-size: cover;">
+    <div class="post-pic" style="background: #979799 no-repeat center top; background-size: cover;">
     {% endif %}
         {% if not background %}
             {% if icon %}
@@ -353,7 +352,7 @@
 
 {%- macro render_project_card_coowner(short_name, user, upload_method, background=False, is_coowner=False, is_creator=False, id=None, icon=None) %}
 <div {%if id%}id="{{id}}"{% endif %} class="thumbnail card">
-    <div class="post-pic" style="background: rgb(0, 151, 167) {%- if background %}url({{account_helper.render_user_avatar_src(user, upload_method)}}){% endif -%} no-repeat center top; background-size: cover;">
+    <div class="post-pic" style="background: #979799 {%- if background %}url({{account_helper.render_user_avatar_src(user, upload_method)}}){% endif -%} no-repeat center top; background-size: cover;">
         {% if not background %}
             {% if icon %}
             <div class="row">

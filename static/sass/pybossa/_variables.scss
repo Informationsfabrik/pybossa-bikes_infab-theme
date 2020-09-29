@@ -8,18 +8,56 @@ $bootstrap-sass-asset-helper: false !default;
 //
 //## Gray and brand colors for use across Bootstrap.
 
+
+@font-face {
+    font-family: avenir-light;
+    src: url(../../css/fonts/Avenir-Light.otf) format("opentype");
+}
+
+@font-face {
+  font-family: avenir-heavy;
+  src: url(../../css/fonts/Avenir-Heavy.otf) format("opentype");
+}
+
+@font-face {
+  font-family: avenir-book;
+  src: url(../../css/fonts/Avenir-Book.otf) format("opentype");
+}
+
+@font-face {
+  font-family: avenir-book-oblique;
+  src: url(../../css/fonts/Avenir-BookOblique.otf) format("opentype");
+}
+
+@font-face {
+    font-family: avenir-light-oblique;
+    src: url(../../css/fonts/Avenir-LightOblique.otf) format("opentype");
+}
+
+@font-face {
+    font-family: avenir-roman;
+    src: url(../../css/fonts/Avenir-Roman.otf) format("opentype");
+}
+
 $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              #7b8a8b !default;   // #333
-$gray:                   #95a5a6 !default; // #555
-$gray-light:             #b4bcc2 !default;   // #999
+$gray-dark:              #424244 !default;   // #333
+$gray:                   #757577 !default; // #555
+$gray-light:             #979799 !default;   // #999
 $gray-lighter:           #F5F7F7 !default; // #eee
 
-$brand-primary:         #546E7A !default;
-$brand-success:         #3AB0D5 !default;
-$brand-info:            #3498DB !default;
+$brand-primary:         #fff !default;
+$brand-success:         #64cf60 !default;
+$brand-info:            #b3b3b3 !default;
 $brand-warning:         #F39C12 !default;
-$brand-danger:          #E74C3C !default;
+$brand-danger:          #c00000 !default;
+
+
+$infab-light-gray:      $brand-info !default;
+$infab-red:             #e30000 !default;
+$infab-dark-gray:       #3b3b3a !default;
+
+$infab-null-raduis:       0px !default;
 
 
 //== Scaffolding
@@ -29,12 +67,12 @@ $brand-danger:          #E74C3C !default;
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            $brand-primary !default;
+$text-color:            #3b3b3a !default;
 
 //** Global textual link color.
-$link-color:            $brand-success !default;
+$link-color:            $text-color !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $link-color !default;
+$link-hover-color:      $infab-red !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
 
@@ -43,10 +81,10 @@ $link-hover-decoration: underline !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  'Source Sans Pro', sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-sans-serif:  avenir-light !default;
+$font-family-serif:       avenir-light !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-monospace:   avenir-light !default;
 $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          15px !default;
@@ -103,14 +141,14 @@ $padding-xs-horizontal:     5px !default;
 $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        4px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-base:        $infab-null-raduis !default;
+$border-radius-large:       $infab-null-raduis !default;
+$border-radius-small:       $infab-null-raduis !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $brand-primary !default;
+$component-active-bg:       $infab-red !default;
 
 //** Width of the `border` for generating carets that indicator dropdowns.
 $caret-width-base:          4px !default;
@@ -130,7 +168,7 @@ $table-condensed-cell-padding:  5px !default;
 //** Default background color used for all tables.
 $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
+$table-bg-accent:               #fff !default;
 //** Background color used for `.table-hover`.
 $table-bg-hover:                $gray-lighter !default;
 $table-bg-active:               $table-bg-hover !default;
@@ -150,7 +188,7 @@ $btn-default-bg:                 $gray !default;
 $btn-default-border:             $btn-default-bg !default;
 
 $btn-primary-color:              $btn-default-color !default;
-$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-bg:                 $infab-red !default;
 $btn-primary-border:             $btn-primary-bg !default;
 
 $btn-success-color:              $btn-default-color !default;
@@ -172,9 +210,9 @@ $btn-danger-border:              $btn-danger-bg !default;
 $btn-link-disabled-color:        $gray-light !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius-base:         $border-radius-base !default;
-$btn-border-radius-large:        $border-radius-large !default;
-$btn-border-radius-small:        $border-radius-small !default;
+$btn-border-radius-base:         $infab-null-raduis !default;
+$btn-border-radius-large:        $infab-null-raduis !default;
+$btn-border-radius-small:        $infab-null-raduis !default;
 
 
 //== Forms
@@ -189,19 +227,19 @@ $input-bg-disabled:              $gray-lighter !default;
 //** Text color for `<input>`s
 $input-color:                    $text-color !default;
 //** `<input>` border color
-$input-border:                   #dce4ec !default;
+$input-border:                   $brand-info !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-$input-border-radius:            $border-radius-base !default;
+$input-border-radius:            $infab-null-raduis !default;
 //** Large `.form-control` border radius
-$input-border-radius-large:      $border-radius-large !default;
+$input-border-radius-large:      $infab-null-raduis !default;
 //** Small `.form-control` border radius
-$input-border-radius-small:      $border-radius-small !default;
+$input-border-radius-small:      $infab-null-raduis !default;
 
 //** Border color for inputs on focus
-$input-border-focus:             $brand-primary !default;
+$input-border-focus:             $infab-red !default;
 
 //** Placeholder text color
 $input-color-placeholder:        #acb6c0 !default;
@@ -249,7 +287,7 @@ $dropdown-link-hover-color:      #fff !default;
 $dropdown-link-hover-bg:         $component-active-bg !default;
 
 //** Active dropdown menu item text color.
-$dropdown-link-active-color:     #fff !default;
+$dropdown-link-active-color:     #3b3b3a !default;
 //** Active dropdown menu item background color.
 $dropdown-link-active-bg:        $component-active-bg !default;
 
@@ -370,36 +408,36 @@ $navbar-default-bg:                $brand-primary !default;
 $navbar-default-border:            transparent !default;
 
 // Navbar links
-$navbar-default-link-color:                #fff !default;
-$navbar-default-link-hover-color:          $brand-success !default;
-$navbar-default-link-hover-bg:             transparent !default;
-$navbar-default-link-active-color:         #fff !default;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 10%) !default;
-$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-color:                #3b3b3a !default;
+$navbar-default-link-hover-color:          #3b3b3a !default;
+$navbar-default-link-hover-bg:             #f2f2f2  !default;
+$navbar-default-link-active-color:         $brand-primary !default;
+$navbar-default-link-active-bg:            $infab-red !default;
+$navbar-default-link-disabled-color:       $brand-info !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
 $navbar-default-brand-color:               $navbar-default-link-color !default;
 $navbar-default-brand-hover-color:         $navbar-default-link-hover-color !default;
-$navbar-default-brand-hover-bg:            transparent !default;
+$navbar-default-brand-hover-bg:            #ffffff !default;
 
 // Navbar toggle
 $navbar-default-toggle-hover-bg:           darken($navbar-default-bg, 10%) !default;
-$navbar-default-toggle-icon-bar-bg:        #fff !default;
-$navbar-default-toggle-border-color:       darken($navbar-default-bg, 10%) !default;
+$navbar-default-toggle-icon-bar-bg:        #3b3b3a !default;
+$navbar-default-toggle-border-color:       darken($infab-red, 10%) !default;
 
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-$navbar-inverse-color:                      #fff !default;
+$navbar-inverse-color:                      $infab-red!default;
 $navbar-inverse-bg:                         $brand-success !default;
 $navbar-inverse-border:                     transparent !default;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 #fff !default;
-$navbar-inverse-link-hover-color:           $brand-primary !default;
+$navbar-inverse-link-color:                 #3b3b3a !default;
+$navbar-inverse-link-hover-color:           $navbar-default-link-hover-color !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
-$navbar-inverse-link-active-color:          #fff !default;
+$navbar-inverse-link-active-color:          #3b3b3a !default;
 $navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 5%) !default;
 $navbar-inverse-link-disabled-color:        #ccc !default;
 $navbar-inverse-link-disabled-bg:           transparent !default;
@@ -411,7 +449,7 @@ $navbar-inverse-brand-hover-bg:             transparent !default;
 
 // Inverted navbar toggle
 $navbar-inverse-toggle-hover-bg:            darken($navbar-inverse-bg, 10%) !default;
-$navbar-inverse-toggle-icon-bar-bg:         #fff !default;
+$navbar-inverse-toggle-icon-bar-bg:         #3b3b3a !default;
 $navbar-inverse-toggle-border-color:        darken($navbar-inverse-bg, 10%) !default;
 
 
@@ -431,16 +469,16 @@ $nav-tabs-border-color:                     $gray-lighter !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
-$nav-tabs-active-link-hover-bg:             $body-bg !default;
+$nav-tabs-active-link-hover-bg:             $brand-primary !default;
 $nav-tabs-active-link-hover-color:          $brand-primary !default;
-$nav-tabs-active-link-hover-border-color:   $gray-lighter !default;
+$nav-tabs-active-link-hover-border-color:   $brand-primary !default;
 
 $nav-tabs-justified-link-border-color:            $gray-lighter !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 
 //== Pills
-$nav-pills-border-radius:                   $border-radius-base !default;
-$nav-pills-active-link-hover-bg:            $component-active-bg !default;
+$nav-pills-border-radius:                   0px !default;
+$nav-pills-active-link-hover-bg:            $infab-red !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 
@@ -448,15 +486,15 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
 //
 //##
 
-$pagination-color:                     #fff !default;
+$pagination-color:                     #3b3b3a !default;
 $pagination-bg:                        $brand-success !default;
 $pagination-border:                    transparent !default;
 
-$pagination-hover-color:               #fff !default;
+$pagination-hover-color:               $infab-red !default;
 $pagination-hover-bg:                  darken($brand-success, 15%) !default;
 $pagination-hover-border:              transparent !default;
 
-$pagination-active-color:              #fff !default;
+$pagination-active-color:              $brand-primary !default;
 $pagination-active-bg:                 darken($brand-success, 15%) !default;
 $pagination-active-border:             transparent !default;
 
@@ -581,7 +619,7 @@ $label-danger-bg:             $brand-danger !default;
 //** Default label text color
 $label-color:                 #fff !default;
 //** Default text color of a linked label
-$label-link-hover-color:      #fff !default;
+$label-link-hover-color:      $infab-red !default;
 
 
 //== Modals
@@ -608,7 +646,7 @@ $modal-backdrop-bg:           #000 !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .5 !default;
 //** Modal header border color
-$modal-header-border-color:   #e5e5e5 !default;
+$modal-header-border-color:   $brand-info !default;
 //** Modal footer border color
 $modal-footer-border-color:   $modal-header-border-color !default;
 
@@ -710,8 +748,8 @@ $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         $border-radius-base !default;
 
 //** Border color for elements within panels
-$panel-inner-border:          $gray-lighter !default;
-$panel-footer-bg:             $gray-lighter !default;
+$panel-inner-border:          $infab-red !default;
+$panel-footer-bg:             $infab-red !default;
 
 $panel-default-text:          $text-color !default;
 $panel-default-border:        $gray-lighter !default;
@@ -771,7 +809,7 @@ $well-border:                 transparent !default;
 
 $badge-color:                 #fff !default;
 //** Linked badge text color on hover
-$badge-link-hover-color:      #fff !default;
+$badge-link-hover-color:      $infab-red !default;
 $badge-bg:                    $brand-primary !default;
 
 //** Badge text color in active nav link
@@ -869,16 +907,15 @@ $dl-horizontal-breakpoint:    $grid-float-breakpoint !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
 
-
 // Scifabric colors
 // COLORS
-$dark-grey: rgba(20,67,82,1);
-$grey: rgba(84,110,123, 1);
-$bright-grey: rgba(201,216,223,1);
-$semi-white: rgba(255,255,255,.5);
+$dark-grey: $gray-darker;
+$grey: $gray;
+$bright-grey: lighten($gray-light, 30%) !default;
+$semi-white: lighten($gray, 30%) !default;
 $white: rgba(255,255,255,1);
-$blue-link: rgba(59,176,212,1);
-$sciblue: rgba(8,125,161,1);
-$grey-bg: rgba(67,88,97,1);
-$quotes-bg: rgba(0, 151, 167, 1);
+$blue-link: $infab-red;
+$sciblue: $infab-red;
+$grey-bg: rgba(62,61,64,1);
+$quotes-bg: $infab-red;
 $author-bg: rgba(209, 221, 226, 1);

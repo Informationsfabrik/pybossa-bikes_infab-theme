@@ -9,6 +9,9 @@
                 <p class="help-block">{{ e }}</p>
             {% endfor %}
         {% endif %}
+        {% if field.name == 'name' %}
+            <p><strong>Der Nutzername ist öffentlich sichtbar. Bitte benutzen Sie nicht Ihren vollen, realen Namen.</strong></p>
+        {% endif %}
     </div>
 {%- endmacro %}
 

@@ -7,9 +7,10 @@
 //
 
 html {
-  font-family: sans-serif; // 1
+  font-family: avenir-light; // 1
   -ms-text-size-adjust: 100%; // 2
   -webkit-text-size-adjust: 100%; // 2
+  height: 100%;
 }
 
 //
@@ -18,7 +19,12 @@ html {
 
 body {
   margin: 0;
+  min-height:100%;
+  height: 100%;
+  display: table;
+  width: 100%; 
 }
+
 
 // HTML5 display definitions
 // ==========================================================================
@@ -45,6 +51,8 @@ section,
 summary {
   display: block;
 }
+
+
 
 //
 // 1. Correct `inline-block` display not defined in IE 8/9.
@@ -88,6 +96,7 @@ template {
 
 a {
   background-color: transparent;
+  color: #e30000;
 }
 
 //
@@ -135,6 +144,8 @@ dfn {
 
 h1 {
   font-size: 2em;
+  margin-top: 40px;
+  font-family: avenir-heavy;
   margin: 0.67em 0;
 }
 
