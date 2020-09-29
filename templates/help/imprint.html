@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% set active_page = "imprint" %}
+
+{% block content %}
+{% include ['custom/_imprint.html', 'help/_imprint.html'] ignore missing %}
+{% endblock %}
