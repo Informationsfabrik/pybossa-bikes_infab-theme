@@ -1,5 +1,5 @@
-This is the default theme for the [Pybossa
-server](https://github.com/PyBossa/pybossa).
+This is the theme for the [INFAB Bike Crowd Sourcing app](https://bikes.informationsfabrik.de).
+It is based on the [default pybossa theme](https://github.com/PyBossa/pybossa).
 
 ![Shuttleworth Foundation Funded](http://pybossa.com/assets/img/shuttleworth-funded.png)
 
@@ -10,7 +10,8 @@ crowd-source human problem-solving skills!
 
 # See it in Action
 
-PyBossa powers [CrowdCrafting.org](http://crowdcrafting.org/) and [ForestWatchers.net](http://forestwatchers.net)
+PyBossa powers [bikes.informationsfabrik.de](https://bikes.informationsfabrik.de/), 
+[CrowdCrafting.org](http://crowdcrafting.org/) and [ForestWatchers.net](http://forestwatchers.net)
 
 # Installing and Upgrading
 
@@ -74,3 +75,8 @@ cooperation with the community in the case of network server software.
 
 Documentation and media is under a Creative Commons Attribution License version
 3.
+
+# Hints regarding copyrighted material
+This source code does not include some images which have been used in the INFAB Bike Crowd Sourcing
+App as these images carry licenses which do not allow us to share them publicly.
+Also the TOS and privacy hints are not commited to the repository.
